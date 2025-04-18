@@ -28,7 +28,7 @@ This guide explains how to use the `init-db.js` and `update-user.js` scripts in 
 This script initializes the PostgreSQL database by creating the necessary tables and inserting sample data.
 #### Usage
 ```bash
-node init-dbClient.js <userId> # accepts test user ID as an argument
+node init-db.js <userId> # accepts test user ID as an argument
 ```
 - `<userId>`: The ID of the test user to be inserted into the database (Default value: 1).
 
@@ -38,7 +38,7 @@ node init-db.js 123
 ```
 
 ### 2. `update-user.js`
-This script updates a user's information in the database and logs the changes of sensitive fields specified by `SENSITIVE_FIELDS` environment variable to the audit log.
+This script updates a user's information in the database and logs the changes of sensitive fields specified by `SENSITIVE_FIELDS` environment variable to the audit logs table.
 #### Usage
 ```bash
 node update-user.js <userId> <updatedData> <adminId>
