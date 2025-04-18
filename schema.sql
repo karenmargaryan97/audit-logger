@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  full_name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  phone VARCHAR(20) UNIQUE,
+  address VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS user_audit_logs (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id),
+  field VARCHAR(25) NOT NULL,
+  old_value VARCHAR(255),
+  new_value VARCHAR(255),
+  changed_by INTEGER NOT NULL,
+  changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
